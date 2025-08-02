@@ -1,0 +1,288 @@
+/* =============================================
+= STYLE.CSS - Giao diện, hiệu ứng, bố cục     =
+============================================= */
+
+/* Reset mặc định */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  padding: 20px 10px;
+}
+
+/* Video nền full màn hình */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+  pointer-events: none;
+}
+
+/* Canvas hiệu ứng vàng */
+#magic-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Khung chính giữa trang */
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.212);
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Viền avatar phát sáng */
+.avatar-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #979500, #f5de11);
+  padding: 2.5px;
+  margin: 0 auto 10px;
+  box-shadow: 0 0 10px rgba(255, 238, 0, 0.3);
+  transition: 0.3s ease;
+  animation: electric-glow 2s infinite alternate;
+}
+.avatar-frame:hover {
+  transform: scale(1.05);
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Tên & giới thiệu */
+.name {
+  font-size: 27px;
+  color: #ff3b18;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.479);
+  animation: electric-text 2s infinite alternate;
+}
+.name:hover {
+  text-shadow: 0 0 10px rgba(248, 238, 93, 0.438);
+}
+.desc {
+  font-size: 19px;
+  color: #ec700a;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.479);
+  margin-bottom: 40px; /* 👈 Khoảng cách 2 ô giữa giới thiệu và nút */
+}
+
+/* Các nút ứng dụng */
+.links .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  width: 220px;
+  margin: 6px auto;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.links .btn .icon-wrap {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.links .btn .icon-wrap img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.links .btn .btn-text {
+  flex: 1;
+  text-align: center;
+}
+.fb      { background: #1877f2; }
+.zalo    { background: #00aefd; }
+.tiktok  { background: #000; }
+.discord  { background: #5865F2; }
+.links .btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* QR Code */
+.qr-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px dashed #aaa;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+.bank-info {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.qr-frame img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+}
+
+/* Thư viện ảnh */
+.gallery-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.gallery-container {
+  overflow: hidden;
+  flex: 1;
+}
+.gallery {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.gallery img {
+  width: 24%;
+  aspect-ratio: 1 / 1;
+  margin: 0 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+.gallery-nav {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Hiệu ứng overlay ảnh */
+.image-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  flex-direction: column;
+}
+.zoomed-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+.nav-btn.left { left: 30px; }
+.nav-btn.right { right: 30px; }
+
+/* Thanh tải loading */
+#preloader {
+  background: #000;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.5s ease;
+}
+.loader {
+  width: 200px;
+  height: 4px;
+  background: #444;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background: orange;
+  animation: loadingBar 2s ease-in-out forwards;
+}
+@keyframes loadingBar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Hiệu ứng điện glow */
+@keyframes electric-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 100, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.4);
+  }
+}
+@keyframes electric-text {
+  0% {
+    text-shadow: 0 0 4px #ff0, 0 0 8px #f80;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f80;
+  }
+}

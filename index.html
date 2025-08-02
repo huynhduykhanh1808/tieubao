@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tiểu Bảo | Trang Cá Nhân</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Thanh loading -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Video nền -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="background.mp4" type="video/mp4" />
+    Trình duyệt của bạn không hỗ trợ video nền.
+  </video>
+
+  <!-- Canvas hiệu ứng -->
+  <canvas id="magic-canvas"></canvas>
+
+  <!-- Nội dung chính -->
+  <div class="container">
+    <!-- Avatar -->
+    <div class="avatar-frame">
+      <img class="avatar" src="avatar.jpg" alt="Avatar" />
+    </div>
+
+    <!-- Tên & mô tả -->
+    <h1 class="name">Tiểu Bảo</h1>
+    <p class="desc">Cày thuê LMHT - Uy tín, nhanh, chuẩn rank</p>
+
+    <!-- Liên kết ứng dụng -->
+    <div class="links">
+      <a class="btn fb" href="https://www.facebook.com/VuongTieuuBaoo" target="_blank">
+        <span class="icon-wrap">
+          <img src="icons/facebook.png" alt="Facebook" />
+        </span>
+        <span class="btn-text">Facebook</span>
+      </a>
+      <a class="btn zalo" href="https://zalo.me/0967560531" target="_blank">
+        <span class="icon-wrap">
+          <img src="icons/zalo.png" alt="Zalo" />
+        </span>
+        <span class="btn-text">Zalo: 0967560531</span>
+      </a>
+      <a class="btn discord" href="https://discord.gg/2DVsvSfU" target="_blank">
+        <span class="icon-wrap">
+          <img src="icons/discord.png" alt="Discord" />
+        </span>
+        <span class="btn-text">Discord</span>
+      </a>
+      <a class="btn tiktok" href="https://www.tiktok.com/" target="_blank">
+        <span class="icon-wrap">
+          <img src="icons/tiktok.png" alt="TikTok" />
+        </span>
+        <span class="btn-text">TikTok</span>
+      </a>
+    </div>
+
+    <!-- Thông tin ngân hàng & mã QR -->
+    <div class="qr-section">
+      <div class="qr-block">
+        <h2 class="bank-info">MB Bank: 0988404419<br/>HUYNH DUY KHANH</h2>
+        <div class="qr-frame">
+          <img src="qr-code.png" alt="QR Code" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Thư viện ảnh -->
+    <div class="gallery-wrapper">
+      <button class="gallery-nav left" onclick="scrollGallery(-1)">&#10094;</button>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery">
+          <img src="images/photo1.webp" onclick="openLightbox(0)" />
+          <img src="images/photo2.webp" onclick="openLightbox(1)" />
+          <img src="images/photo3.webp" onclick="openLightbox(2)" />
+          <img src="images/photo4.webp" onclick="openLightbox(3)" />
+          <img src="images/photo5.webp" onclick="openLightbox(4)" />
+          <img src="images/photo6.webp" onclick="openLightbox(5)" />
+          <img src="images/photo7.webp" onclick="openLightbox(6)" />
+          <img src="images/photo8.webp" onclick="openLightbox(7)" />
+        </div>
+      </div>
+      <button class="gallery-nav right" onclick="scrollGallery(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
